@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./Disk.module.css";
-export default function Disk({ diskSrc }) {
+export default function Disk({ diskSrc, id }) {
     const inlineStyles = {
         backgroundImage: "url({ diskSrc })",
     };
     
     return (
         <div className={styles.disk} style = { inlineStyles } >
-            <img src={diskSrc} alt="disk" />
+            <img className={styles[`${id}`]} src={diskSrc} alt="disk" />
         </div>
     );
 }
