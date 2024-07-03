@@ -2,38 +2,37 @@
   display: flex;
   flex-direction:column;
   align-items: center;
-  justify-content: space-evenly;
-    height: 30px;
-    width: 60px;
-    margin: 5px auto;
+  justify-content: center;
+  margin: 5px auto;
+  z-index: 2;
   }
 
   .one {
-    width: 500px;
-    height: 50px;
+    width: 90%;
+    height: 35px;
   }
   .two {
-    width: 450px;
-    height: 50px;
+    width: 80%;
+    height: 35px;
   }
   .three {
-    width: 400px;
-    height: 50px;
+    width: 70%;
+    height: 35px;
   }
   .four {
-    width: 350px;
-    height: 50px;
+    width: 60%;
+    height: 35px;
   }
   .five {
-    width: 300px;
-    height: 50px;
+    width: 50%;
+    height: 35px;
   }
   .six {
-    width: 250px;
-    height: 50px;
+    width: 40%;
+    height: 35px;
   }
   .seven {
-    width: 200px;
-    height: 50px;
+    width: 30%;
+    height: 35px;
   }
   
