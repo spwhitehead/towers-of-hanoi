@@ -1,13 +1,23 @@
+import {useDraggable} from '@dnd-kit/core';
+import {CSS} from '@dnd-kit/utilities';
 import React from "react";
 import styles from "./Disk.module.css";
 export default function Disk({ diskSrc, id }) {
+    const {attributes, listeners, setNodeRef, transform} = useDraggable({
+        id: id,
+      });
+      const style = {
+        // Outputs `translate3d(x, y, 0)`
+        transform: CSS.Translate.toString(transform),
+      };
+
     const inlineStyles = {
         backgroundImage: "url({ diskSrc })",
     };
     
     return (
         <div className={styles.disk} style = { inlineStyles } >
-            <img className={styles[`${id}`]} src={diskSrc} alt="disk" />
+            <img className={styles[`${id}`]} src={diskSrc} alt="disk" ref={setNodeRef} style={style} {...listeners} {...attributes}/>
         </div>
     );
 }

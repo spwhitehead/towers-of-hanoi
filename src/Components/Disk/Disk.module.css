@@ -3,36 +3,36 @@
   flex-direction:column;
   align-items: center;
   justify-content: center;
-  margin: 5px auto;
+  margin: 2px;
   z-index: 2;
   }
 
   .one {
     width: 90%;
-    height: 35px;
+    height: 20px;
   }
   .two {
     width: 80%;
-    height: 35px;
+    height: 20px;
   }
   .three {
     width: 70%;
-    height: 35px;
+    height: 20px;
   }
   .four {
     width: 60%;
-    height: 35px;
+    height: 20px;
   }
   .five {
     width: 50%;
-    height: 35px;
+    height: 20px;
   }
   .six {
     width: 40%;
-    height: 35px;
+    height: 20px;
   }
   .seven {
     width: 30%;
-    height: 35px;
+    height: 20px;
   }
   

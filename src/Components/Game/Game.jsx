@@ -1,20 +1,36 @@
 import React, { useState } from "react";
+import {DndContext} from '@dnd-kit/core';
 import Tower from "../Tower/Tower";
 import { disks } from "../../assets/discs";
 import styles from "./Game.module.css";
 
 
 export default function Game() {
+    const [parent, setParent] = useState(null);
+    const [towerState, setTowerState] = useState({
+        t1: [...disks],
+        t2: [],
+        t3: [],
+    });
+    function handleDragEnd({over}) {
+        setParent(over ? over.id : null);
+        //towerState.t1 = [disks[0], disks[1], disks[2]];
+        //towerState.t2 = [disks[3]];
 
-    const [t1, setT1] = useState(disks);
-    const [t2, setT2] = useState([]);
-    const [t3, setT3] = useState([]);
-
+        setTowerState({
+            t1: [disks[0], disks[1], disks[2]],
+            t2: [disks[3]],
+            t3: [],
+        });
+    }
+      
     return (
-        <div className={styles.game}>
-            <Tower disks={t1} />
-            <Tower disks={t2} />
-            <Tower disks={t3} />
-        </div>
+        <main className={styles.game}>
+            <DndContext onDragEnd={handleDragEnd}>
+                <Tower towerId={"t1"} disks={towerState.t1} />
+                <Tower towerId={"t2"} disks={towerState.t2} />
+                <Tower towerId={"t3"} disks={towerState.t3} />
+            </DndContext>
+        </main>
     );
 }

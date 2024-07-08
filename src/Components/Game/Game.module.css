@@ -2,6 +2,6 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    background-color: rgb(19, 86, 242);
-    border-radius: 10px;
+    /* background-color: rgb(19, 86, 242); */
+    /* border-radius: 10px; */
 }
