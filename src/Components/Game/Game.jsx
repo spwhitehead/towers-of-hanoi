@@ -12,15 +12,30 @@ export default function Game() {
         t2: [],
         t3: [],
     });
-    function handleDragEnd({over}) {
+    function handleDragEnd({ active, over }) {
         setParent(over ? over.id : null);
-        //towerState.t1 = [disks[0], disks[1], disks[2]];
-        //towerState.t2 = [disks[3]];
+
+        const newT1 = towerState.t1.filter((disk => disk.id !== active.id));
+        const newT2 = towerState.t2.filter((disk => disk.id !== active.id));
+        const newT3 = towerState.t3.filter((disk => disk.id !== active.id));
+
+        // Add disk to the target tower
+
+        // Get the disk
+        let activeDisk = disks.find(disk => disk.id === active.id)
+
+        if (over.id === "t1") {
+            newT1.push(activeDisk);
+        } else if (over.id === "t2") {
+            newT2.push(activeDisk);
+        } else if (over.id === "t3") {
+            newT3.push(activeDisk);
+        }
 
         setTowerState({
-            t1: [disks[0], disks[1], disks[2]],
-            t2: [disks[3]],
-            t3: [],
+            t1: newT1,
+            t2: newT2,
+            t3: newT3,
         });
     }
       
