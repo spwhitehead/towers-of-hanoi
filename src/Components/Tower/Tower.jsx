@@ -13,8 +13,8 @@ export default function Tower({ towerId, disks }) {
 
     return (
         <div  ref={setNodeRef} style={style} className={styles.tower}>
-            {disks.slice().reverse().map((disk) =>
-                <Disk key={disk.id} diskSrc={disk.image} id={disk.id} />
+            {disks.slice().reverse().map((disk, i) =>
+                <Disk key={disk.id} diskSrc={disk.image} id={disk.id} isTopDisk={i === 0}/>
             )}
         </div>
     );
