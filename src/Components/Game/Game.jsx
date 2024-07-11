@@ -39,26 +39,22 @@ export default function Game() {
                 else if (over.id === "t2") newT2.push(activeDisk);
                 else if (over.id === "t3") newT3.push(activeDisk);
             }
-           
+        } else {
+            if (over.id === "t1") newT1.push(activeDisk);
+            else if (over.id === "t2") newT2.push(activeDisk);
+            else if (over.id === "t3") newT3.push(activeDisk);
+        }
         setTowerState({
             t1: newT1,
             t2: newT2,
             t3: newT3,
         });
-    } else {
-        if (over.id === "t1") newT1.push(activeDisk);
-        else if (over.id === "t2") newT2.push(activeDisk);
-        else if (over.id === "t3") newT3.push(activeDisk);
-
-        setTowerState({
-            t1: newT1,
-            t2: newT2,
-            t3: newT3,
-        });
+    // Check if t1 & t2 are empty AND t3 is an array with 7 elements
+        if (newT1.length === 0 && newT2.length === 0 && newT3.length === disks.length) {
+           return alert("You won!");
+        }
     };
 
-    }
-      
     return (
         <main className={styles.game}>
             <DndContext onDragEnd={handleDragEnd}>
