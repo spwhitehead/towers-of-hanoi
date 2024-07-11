@@ -4,7 +4,6 @@ import Tower from "../Tower/Tower";
 import { disks } from "../../assets/discs";
 import styles from "./Game.module.css";
 
-
 export default function Game() {
     const [parent, setParent] = useState(null);
     const [towerState, setTowerState] = useState({
@@ -12,6 +11,7 @@ export default function Game() {
         t2: [],
         t3: [],
     });
+
     function handleDragEnd({ active, over }) {
         setParent(over ? over.id : null);
 
