@@ -1,7 +1,6 @@
 .game {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: minmax(300px, 1fr);
     gap: 20px;
-    /* background-color: rgb(19, 86, 242); */
-    /* border-radius: 10px; */
 }

@@ -8,13 +8,14 @@ export default function Tower({ towerId, disks }) {
       });
     
     const style = {
-        opacity: isOver ? 1 : 0.5,
+        transform: isOver ? 'scale(1.1)' : 'scale(1)',
+        transition: 'transform 0.3s ease',
       };
 
     return (
         <div  ref={setNodeRef} style={style} className={styles.tower}>
             {disks.slice().reverse().map((disk, i) =>
-                <Disk key={disk.id} diskSrc={disk.image} id={disk.id} isTopDisk={i === 0}/>
+                <Disk key={disk.id} diskSrc={disk.image} id={disk.id} isTopDisk={i === 0} size={disk.size}/>
             )}
         </div>
     );

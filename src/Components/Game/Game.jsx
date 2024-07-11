@@ -19,24 +19,44 @@ export default function Game() {
         const newT2 = towerState.t2.filter((disk => disk.id !== active.id));
         const newT3 = towerState.t3.filter((disk => disk.id !== active.id));
 
-        // Add disk to the target tower
-
         // Get the disk
         let activeDisk = disks.find(disk => disk.id === active.id)
 
-        if (over.id === "t1") {
-            newT1.push(activeDisk);
-        } else if (over.id === "t2") {
-            newT2.push(activeDisk);
-        } else if (over.id === "t3") {
-            newT3.push(activeDisk);
-        }
+        // Get disks from target tower (the "over" tower)
+        const targetDisks = towerState[over.id];
+        if (targetDisks.length > 0) {
+            // Get the last disk in the target tower
+            const lastDisk = targetDisks[targetDisks.length - 1];
+            
+            // Check if the active disk is larger than the last disk
+            // If it is, display an alert
+            if (activeDisk.size > lastDisk.size) {
+                return alert("You can't place a larger disk on a smaller disk");
+            };
+
+            if (activeDisk.size <= lastDisk.size) {
+                if (over.id === "t1") newT1.push(activeDisk);
+                else if (over.id === "t2") newT2.push(activeDisk);
+                else if (over.id === "t3") newT3.push(activeDisk);
+            }
+           
+        setTowerState({
+            t1: newT1,
+            t2: newT2,
+            t3: newT3,
+        });
+    } else {
+        if (over.id === "t1") newT1.push(activeDisk);
+        else if (over.id === "t2") newT2.push(activeDisk);
+        else if (over.id === "t3") newT3.push(activeDisk);
 
         setTowerState({
             t1: newT1,
             t2: newT2,
             t3: newT3,
         });
+    };
+
     }
       
     return (

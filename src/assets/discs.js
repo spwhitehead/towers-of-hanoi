@@ -7,11 +7,11 @@ import disk6 from "./block6.png"
 import disk7 from "./block7.png"
 
 export const disks = [
-    { id: "one", image: disk1 },
-    { id: "two", image: disk2 },
-    { id: "three", image: disk3 },
-    { id: "four", image: disk4 },
-    { id: "five", image: disk5 },
-    { id: "six", image: disk6 },
-    { id: "seven", image: disk7 },
+    { id: "one", image: disk1, size: 7 },
+    { id: "two", image: disk2, size: 6 },
+    { id: "three", image: disk3, size: 5 },
+    { id: "four", image: disk4, size: 4 },
+    { id: "five", image: disk5, size: 3 },
+    { id: "six", image: disk6, size: 2 },
+    { id: "seven", image: disk7, size: 1 },
 ]

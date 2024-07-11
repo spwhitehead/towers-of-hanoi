@@ -3,11 +3,10 @@
     background-size: contain;  
     background-repeat: no-repeat;
     background-position: center;
-    /* border: 2px solid #000; */
-    /* border-radius: 10px; */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: flex-end;
+    z-index: 1;
   }
 
   img {
