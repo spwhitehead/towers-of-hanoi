@@ -6,6 +6,7 @@ import styles from "./Game.module.css";
 
 export default function Game() {
     const [parent, setParent] = useState(null);
+    const [moves, setMoves] = useState(0);
     const [towerState, setTowerState] = useState({
         t1: [...disks],
         t2: [],
@@ -44,6 +45,10 @@ export default function Game() {
             else if (over.id === "t2") newT2.push(activeDisk);
             else if (over.id === "t3") newT3.push(activeDisk);
         }
+
+        // Count Moves
+        setMoves(prev => prev + 1);
+
         setTowerState({
             t1: newT1,
             t2: newT2,
@@ -51,7 +56,7 @@ export default function Game() {
         });
     // Check if t1 & t2 are empty AND t3 is an array with 7 elements
         if (newT1.length === 0 && newT2.length === 0 && newT3.length === disks.length) {
-           return alert("You won!");
+           return alert(`You won! It took ${moves} moves.`);
         }
     };
 
